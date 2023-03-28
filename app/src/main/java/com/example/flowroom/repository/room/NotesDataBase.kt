@@ -6,14 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [Note::class], version = 1)
-abstract class NotesDataBase: RoomDatabase() {
+abstract class NotesDataBase : RoomDatabase() {
     abstract val notesDao: NotesDao
 
     companion object {
-        fun create(context: Context) = Room.databaseBuilder(
-            context,
-            NotesDataBase::class.java,
-            "notes-database"
-        )
+        fun create(context: Context) = Room
+            .databaseBuilder(
+                context,
+                NotesDataBase::class.java,
+                "notes-database"
+            )
+            .build()
     }
 }
