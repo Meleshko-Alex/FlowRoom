@@ -10,8 +10,8 @@ interface NotesDao {
     fun getAll(): Flow<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(note: Note)
+    suspend fun add(note: Note)
 
     @Delete
-    fun delete(note: Note)
+    suspend fun delete(note: Note)
 }
