@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FlowRoom</string>
+    <string name="type_here_hint">Type here</string>
 </resources>
