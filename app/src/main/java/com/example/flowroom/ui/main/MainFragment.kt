@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.flowroom.databinding.FragmentMainBinding
 import com.example.flowroom.repository.room.Note
 import com.example.flowroom.ui.adapter.NotesAdapter
 import com.example.flowroom.ui.adapter.SwipeHelper
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class MainFragment : Fragment() {
@@ -36,7 +38,7 @@ class MainFragment : Fragment() {
             addButton.setOnClickListener { saveNote() }
         }
 
-        viewModel.notes.onEach(::renderNotes)
+        viewModel.notes.onEach(::renderNotes).launchIn(lifecycleScope)
     }
 
     private fun saveNote() {
