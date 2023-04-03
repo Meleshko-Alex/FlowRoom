@@ -27,10 +27,11 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch { repository.delete(note) }
     }
 
-    private fun createNote(noteText: String) = Note (
+    private fun createNote(noteText: String) = Note(
         caption = createCaption(),
         text = noteText
-            )
+    )
 
-    private fun createCaption(): String = DateFormat.format("hh:mm:ss, MMM dd, yyyy", Date()).toString()
+    private fun createCaption(): String =
+        DateFormat.format("hh:mm:ss, MMM dd, yyyy", Date()).toString()
 }

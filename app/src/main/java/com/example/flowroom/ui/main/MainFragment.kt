@@ -43,7 +43,8 @@ class MainFragment : Fragment() {
 
     private fun saveNote() {
         views {
-            val noteText = addNoteEditText.text.toString().takeIf { it.isNotBlank() } ?: return@views
+            val noteText =
+                addNoteEditText.text.toString().takeIf { it.isNotBlank() } ?: return@views
             viewModel.save(noteText)
         }
     }

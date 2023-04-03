@@ -14,12 +14,12 @@ class SwipeCallback(
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         (viewHolder as? NoteViewHolder)?.item?.let { onSwiped(it) }
     }
+
     override fun onMove(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean = false
-
 
 
 }
